@@ -54,14 +54,14 @@ func (h *Heap) Swap(i, j int) {
 }
 
 // Push adds an element to the heap.
-func (h *Heap) Push(x interface{}) {
+func (h *Heap) Push(x any) {
 	h.Array = append(h.Array, x.(Element))
 	h.shiftUp(h.size)
 	h.size++
 }
 
 // Pop removes and returns the top element of th heap.
-func (h *Heap) Pop() interface{} {
+func (h *Heap) Pop() any {
 	h.Swap(0, h.size-1)
 	v := h.Array[h.size-1]
 	h.Array = h.Array[:h.size-1]
